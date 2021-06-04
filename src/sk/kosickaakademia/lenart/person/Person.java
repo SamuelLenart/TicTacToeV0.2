@@ -29,15 +29,16 @@ public class Person {
         return age;
     }
 
+    @Override
     public int hashCode(){
-        var hashCode = 0;
+        var code = 0;
+        var sam = "aeiouy";
         for (var i = 0; i < lname.length(); i++){
-            var lone = lname.charAt(i);
-            if (lone != 'a' && lone != 'e' && lone != 'o' && lone != 'i' && lone != 'u' && lone != 'y'
-                    && (lone != 'A' && lone != 'E' && lone != 'O' && lone != 'I' && lone != 'U' && lone != 'Y')){
-                hashCode += Math.pow(2, (lname.length() - i - 1));
+            var z = lname.toLowerCase().charAt(i);
+            if (!sam.contains(String.valueOf(z))) {
+                code += Math.pow(2, (lname.length() - i - 1));
             }
         }
-        return hashCode;
+        return code;
     }
 }
